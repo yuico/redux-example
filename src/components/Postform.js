@@ -7,7 +7,13 @@ class Postform extends Component {
       title: '',
       body: ''
     }
+    this.onChange = this.onChange.bind(this)
   }
+
+  onChange(e) {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
   render() {
     return (
       <div>
@@ -15,11 +21,11 @@ class Postform extends Component {
         <form>
           <div>
             <label htmlFor="">Title: </label><br/>
-            <input type="text" name="title" value={this.state.title}/>
+            <input type="text" name="title" onChange={this.onChange} value={this.state.title}/>
           </div>
           <div>
             <label htmlFor="">Body: </label><br/>
-            <input type="text" name="body" value={this.state.title}/>
+            <input type="text" name="body" onChange={this.onChange} value={this.state.body}/>
           </div>
           <br/>
           <button type="submit">Submit</button>
